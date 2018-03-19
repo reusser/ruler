@@ -1,0 +1,22 @@
+/********    fonts    ********/
+$--font-size-base: 14px !default;
+$--font-size-small: 12px !default;
+$--font-size-large: 16px !default;
+$--font-weight-base: 500 !default;
+$--font-weight-bold: 700 !default;
+$--font-weight-lighter: 300 !default;
+
+
+/********    color    ********/
+$--color-white: #fff !default;
+$--color-black: #000 !default;
+
+$--color-primary: #fe6f3d !default;
+
+$--color-text-primary: #5e5e5e !default;
+$--color-text-second: #a1a1a1 !default;
+$--color-text-placeholder: #bcbcbc !default;
+
+/********    menu    ********/
+$--menu-item-fill: $--color-white !default;
+$--menu-item-color: $--color-text-primary !default;

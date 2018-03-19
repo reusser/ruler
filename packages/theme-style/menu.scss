@@ -1,0 +1,35 @@
+@import "mixins/index";
+@import "common/var";
+
+
+@mixin menu-item {
+  
+}
+@include b(menu) {
+  position: relative;
+  margin: 0;
+  list-style: none;
+  border: 1px solid #e6e6e6;
+  background-color: $--menu-item-fill;
+}
+@include b(submenu) {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+  background-color: $--menu-item-fill;
+  @include e(title-icon) {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    margin-top: -7px;
+    transition: transform .4s;
+    font-size: 12px;
+  }
+  @include when(open) {
+    > .ru-submenu__title .ru-submenu__title-icon {
+      transform: rotateZ(180deg);
+    }
+  }
+}
+
+
