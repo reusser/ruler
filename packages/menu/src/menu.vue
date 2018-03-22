@@ -1,8 +1,5 @@
 <template>
-  <ul 
-    :class="classes"
-    :style="{backgroundColor: backgroundColor || ''}"
-  >
+  <ul :class="classes">
     <slot></slot>
   </ul>
 </template>
@@ -28,16 +25,16 @@ export default {
       type: Boolean,
       default: true
     },
-    backgroundColor: String,
-    textColor: String,
-    activeTextColor: String,
-    collapse: Boolean
+    activeName: {
+      type: [Number, String]
+    },
+    collapse: Boolean,
+    router: Boolean
   },
   data() {
-    return {}
-  },
-  mounted() {
-    this.broadcast('RuMenuItem', 'test', '10000')
+    return {
+      currentActiveName: this.activeName
+    }
   },
   computed: {
     classes() {
@@ -46,6 +43,28 @@ export default {
         `${prefixClass}--${this.theme}`,
         `${prefixClass}--${this.mode}`
       ]
+    }
+  },
+  mounted() {
+    this.updateActiveName()
+    this.$on('menuItemSelect', name => {
+      this.currentActiveName = name
+      this.$emit('select', name)
+    })
+  },
+  methods: {
+    updateActiveName() {
+      if (this.currentActiveName === undefined) return
+      this.broadcast('RuMenuItem', 'updateActiveName', this.currentActiveName)
+    }
+  },
+  watch: {
+    currentActiveName() {
+      this.updateActiveName()
+    },
+    activeName(val) {
+      this.currentActiveName = val
+      console.log(this.currentActiveName)
     }
   }
 }

@@ -1,5 +1,4 @@
 const broadcast = function (componentName, eventName, params) {
-  params = params === undefined ? [] : params
   this.$children.forEach(child => {
     let name = child.$options.name
     if (name === componentName) {
@@ -15,7 +14,7 @@ const dispatch = function (componentName, eventName, params) {
   while(parent && parent.$options.name !== componentName) {
     parent = parent.$parent
   }
-  parent ? parent.$emit.call(parent, componentName, eventName, params) : ''
+  parent ? parent.$emit.call(parent, eventName, params) : ''
 }
 
 export default {

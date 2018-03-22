@@ -18,3 +18,25 @@ export const findParentComponents = function (ctx, componentName) {
   }
   return components
 }
+
+export const addClass = function (el, className) {
+  if (!el || !className) return
+  className = className.trim()
+  const classList = className.split(' ')
+  for (let i = 0; i < classList.length; i++) {
+    if (classList[i].includes(' ')) throw new Error('className can not contain space!')
+    el.className += ` ${classList[i]}`
+  }
+}
+
+export const removeClass = function (el, className) {
+  if (!el || !className) return
+  className = className.trim()
+  const classList = className.split(' ')
+  let nowClassName = ` ${el.className} `
+  for (let i = 0; i < classList.length; i++) {
+    if (classList[i].includes(' ')) throw new Error('className can not contain space!')
+    if (nowClassName.includes(classList[i])) nowClassName = nowClassName.replace(` ${classList[i]} `, ' ')
+  }
+  el.className = nowClassName.trim()
+}

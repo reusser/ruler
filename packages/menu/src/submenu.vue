@@ -3,25 +3,29 @@
     <div 
       :class="`${prefixClass}__title`"
       @click.stop="clickHandler"
+      :style="subMenuTitleStyle"
     >
-      <slot 
-        name="title" 
-        :style="subMenuTitleStyle"
-      >
-      </slot>
+      <slot name="title"></slot>
       <ru-icon 
-        :type="'ios-arrow-up'" 
-        :class="`${prefixClass}__title-icon`"
+        :class="[`${prefixClass}__title-icon`, 'ru-icon-ios-arrow-up']"
       >
       </ru-icon>
     </div>
-    <slot></slot>
+    <collapse-transition v-if="mode === 'vertical'">
+      <ul
+        :class="'ru-menu'"
+        v-show="isOpen"
+      >
+        <slot></slot>
+      </ul>
+    </collapse-transition>
   </li>
 </template>
 
 <script>
 import RuIcon from '../../icon/'
-import {menuMixin} from '../../mixins'
+import {menuMixin, emitter, collapseTransition} from '../../mixins'
+import {findParentComponent} from '../../utils'
 
 const prefixClass = 'ru-submenu'
 export default {
@@ -29,7 +33,10 @@ export default {
   components: {
     RuIcon
   },
-  mixins: [menuMixin],
+  mixins: [menuMixin, emitter],
+  components: {
+    collapseTransition
+  },
   props: {
     disabled: {
       type: Boolean,
@@ -60,12 +67,15 @@ export default {
     },
     subMenuTitleStyle() {
       return this.mode !== 'horizon' ? {
-        paddingLeft: `${(~~ this.SubmenuParentNum + 1) * 24}px`
+        paddingLeft: `${40 + (~~ this.submenuParentNum - 1) * 20}px`
       } : {}
     },
     uniqueOpen() {
       return this.menu.uniqueOpen
     }
+  },
+  mounted() {
+    
   },
   methods: {
     clickHandler() {

@@ -1,6 +1,6 @@
 <template>
   <i 
-    :class="['ru-icon', type ? `ru-icon-${type}` : '']"
+    :class="type ? `ru-icon-${type}` : ''"
     :style="styles"
   >
   </i>

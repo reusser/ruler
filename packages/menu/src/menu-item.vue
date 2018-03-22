@@ -9,10 +9,11 @@
 </template>
 
 <script>
-import {emitter} from '../../mixins'
+import {findParentComponents} from '../../utils'
+import {emitter, menuMixin} from '../../mixins'
 export default {
   name: 'RuMenuItem',
-  mixins: [emitter],
+  mixins: [emitter, menuMixin],
   props: {
     name: {
       type: [Number, String],
@@ -40,15 +41,29 @@ export default {
       ]
     },
     itemStyle() {
-      return
+      return this.mode !== 'horizon' ? {
+        paddingLeft: `${40 + (~~ this.submenuParentNum - 1) * 20}px`
+      } : {}
     }
+  },
+  mounted() {
+    this.$on('updateActiveName', name => {
+      if (this.name === name) {
+        this.isActive = true
+        let parents = findParentComponents(this, 'RuSubmenu')
+        parents.forEach(parent => !parent.isOpen ? parent.isOpen = true : '')
+      } else {
+        this.isActive = false
+      }
+    })
   },
   methods: {
     clickHandler() {
       if (this.disabled) return
+      this.dispatch('RuSubmenu', 'menuItemSelect', false)
       this.dispatch('RuMenu', 'menuItemSelect', this.name)
+      if (this.menu.router) this.$router.push(this.name)
     }
   }
 }
 </script>
-

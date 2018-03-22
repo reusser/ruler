@@ -26,6 +26,15 @@
   }
 }
 
+@mixin c ($firstCondition, $secondCondition) {
+  $selector: &;
+  @at-root {
+    #{$selector + $modifier-separator + $firstCondition+ $selector + $modifier-separator + $secondCondition} {
+      @content;
+    }
+  }
+}
+
 @mixin when ($state) {
   @at-root {
     &.#{$state-prefix + $state} {

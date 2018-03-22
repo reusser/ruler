@@ -1,3 +1,25 @@
 @import "ionicons-variables";
 @import "ionicons-font";
 @import "ionicons-icons";
+
+[class*=" ru-icon-"],
+[class^="ru-icon-"] {
+  display: inline-block;
+  color: #5a6b76;
+  vertical-align: baseline;
+}
+
+.ru-icon-refresh,
+.ru-icon-loop,
+.ru-icon-aperture {
+  animation: rotating 2s linear infinite;
+}
+
+@keyframes rotating {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
