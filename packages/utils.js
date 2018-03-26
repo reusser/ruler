@@ -19,6 +19,22 @@ export const findParentComponents = function (ctx, componentName) {
   return components
 }
 
+export const findChildrenComponents = function (ctx, componentName) {
+  let components = []
+  if (ctx) {
+    let stack = [ctx]
+    while(stack.length != 0) {
+      let item = stack.pop()
+      if (item.$options.name === componentName) components.push(item)
+      let children = item.$children
+      for (let i = children.length - 1; i >= 0; i--) {
+        stack.push(children[i])
+      }
+    }
+  }
+  return components
+}
+
 export const addClass = function (el, className) {
   if (!el || !className) return
   className = className.trim()
@@ -39,4 +55,10 @@ export const removeClass = function (el, className) {
     if (nowClassName.includes(classList[i])) nowClassName = nowClassName.replace(` ${classList[i]} `, ' ')
   }
   el.className = nowClassName.trim()
+}
+
+export const findSiblingComponents = function (ctx, componentName) {
+  let components = ctx.$parent.$children.filter(item => item.$options.name === componentName)
+  components.splice(components.indexOf(ctx), 1)
+  return components
 }

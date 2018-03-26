@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="content-wrapper">
-      <RuMenu :activeName="'1-2'">
+      <RuMenu :openName="['1', '3']">
         <RuSubmenu name="1">
           <template slot="title">
             <RuIcon :type="'heart'"></RuIcon>收藏列表

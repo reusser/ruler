@@ -1,4 +1,4 @@
-import {findParentComponent, findParentComponents} from '../utils'
+import {findParentComponent, findParentComponents, findChildrenComponents} from '../utils'
 
 export default {
   data() {

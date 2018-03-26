@@ -6,7 +6,7 @@
 
 <script>
 import {emitter} from '../../mixins'
-
+import {findChildrenComponents, findSiblingComponents} from '../../utils'
 const prefixClass = 'ru-menu'
 
 export default {
@@ -26,14 +26,22 @@ export default {
       default: true
     },
     activeName: {
-      type: [Number, String]
+      type: [Number, String],
+      default: ''
+    },
+    openName: {
+      type: Array,
+      default() {
+        return []
+      }
     },
     collapse: Boolean,
     router: Boolean
   },
   data() {
     return {
-      currentActiveName: this.activeName
+      currentActiveName: this.activeName,
+      submenus: []
     }
   },
   computed: {
@@ -46,7 +54,9 @@ export default {
     }
   },
   mounted() {
+    this.submenus = findChildrenComponents(this, 'RuSubmenu')
     this.updateActiveName()
+    this.updateOpened()
     this.$on('menuItemSelect', name => {
       this.currentActiveName = name
       this.$emit('select', name)
@@ -56,6 +66,26 @@ export default {
     updateActiveName() {
       if (this.currentActiveName === undefined) return
       this.broadcast('RuMenuItem', 'updateActiveName', this.currentActiveName)
+    },
+    updateOpenName(name) {
+      let index = this.openName.indexOf(name)
+      if (index > -1) this.openName.splice(index, 1)
+      else {
+        this.openName.push(name)
+        if (this.uniqueOpen) {
+          let openSubmenu = {}
+          this.submenus.forEach(item => item.name === name ? openSubmenu = item : '')
+          findSiblingComponents(openSubmenu, 'RuSubmenu').forEach(item => {
+            let index = this.openName.indexOf(item.name)
+            this.openName.splice(index, index >= 0 ? 1 : 0)
+          })
+        }
+      }
+    },
+    updateOpened() {
+      if (this.submenus && this.submenus.length) {
+        this.submenus.forEach(item => this.openName.includes(item.name) ? item.isOpen = true : '')
+      }
     }
   },
   watch: {
@@ -64,7 +94,6 @@ export default {
     },
     activeName(val) {
       this.currentActiveName = val
-      console.log(this.currentActiveName)
     }
   }
 }

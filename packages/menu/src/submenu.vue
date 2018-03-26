@@ -74,9 +74,7 @@ export default {
       return this.menu.uniqueOpen
     }
   },
-  mounted() {
-    
-  },
+  mounted() {},
   methods: {
     clickHandler() {
       if (this.disabled || this.mode !== 'vertical') return
@@ -86,6 +84,7 @@ export default {
         })
       }
       this.isOpen = !this.isOpen
+      this.menu.updateOpenName(this.name)
     }
   }
 }
