@@ -9,7 +9,7 @@
   }
 </script>
 
-### 图标集合
+## 图标集合
 <ul class="icon-list">
   <li v-for="type in icons" :key="type">
     <span>
