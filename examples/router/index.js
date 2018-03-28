@@ -4,6 +4,7 @@ import Router from 'vue-router'
 Vue.use(Router)
 
 const icon = resolve => require(['@/doc/icon.md'], resolve)
+const font = resolve => require(['@/doc/font.md'], resolve)
 const color = resolve => require(['@/doc/color.md'], resolve)
 export default new Router({
   routes: [
@@ -14,6 +15,10 @@ export default new Router({
     {
       path: '/icon',
       component: icon
+    },
+    {
+      path: '/font',
+      component: font
     }
   ]
 })

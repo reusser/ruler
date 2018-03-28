@@ -14,8 +14,8 @@
             <RuIcon :type="'grid'"></RuIcon>组件列表
           </template>
           <RuMenuItem :name="'color'"><RuIcon :type="'android-color-palette'"></RuIcon>Color 色彩</RuMenuItem>
-          <RuMenuItem :name="'icon'"><RuIcon :type="'ionic'"></RuIcon>Icon 图标</RuMenuItem>
           <RuMenuItem :name="'font'"><RuIcon :type="'bonfire'"></RuIcon>Font 字体</RuMenuItem>
+          <RuMenuItem :name="'icon'"><RuIcon :type="'ionic'"></RuIcon>Icon 图标</RuMenuItem>
         </RuSubmenu>
       </RuMenu>
       <router-view class="router-view"/>
@@ -40,9 +40,15 @@ export default {
     margin: 90px auto 0 auto;
     h2 {
       font-size: 28px;
+      &+p {
+        margin: 14px 0;
+      }
     }
     h3 {
       font-size: 22px;
+      &+p {
+        margin: 14px 0;
+      }
     }
     section > h3 {
       margin: 50px 0 20px;

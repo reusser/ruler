@@ -102,9 +102,6 @@ Ruler的主要颜色是橙色
 </div>
 
 <style lang="scss" scoped>
-p {
-  margin: 14px 0;
-}
 .flex-box {
   display: flex;
   flex-wrap: wrap;
