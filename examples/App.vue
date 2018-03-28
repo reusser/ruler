@@ -70,6 +70,26 @@ export default {
     }
   }
 }
+.router-view > table {
+  width: 100%;
+  border: 1px solid #e4e4e4;
+  border-collapse: collapse;
+  thead {
+    background-color: #f7f7f7;
+    font-weight: 600;
+  }
+  th,
+  td {
+    padding: 8px 16px;
+    border: 1px solid #e4e4e4;
+    text-align: left;
+  }
+  td {
+    font-size: 14px;
+    font-family: Consolas;
+    color: #495056;
+  }
+}
 .hljs {
   font-family: Consolas, Menlo, Courier, monospace !important;
   * {

@@ -152,22 +152,6 @@ Ruler对字体进行了统一规范，力求在不同平台、浏览器下能显
   }
 }
 .font-example {
-  width: 100%;
-  border: 1px solid #e4e4e4;
-  border-collapse: collapse;
-  thead {
-    background-color: #f7f7f7;
-    font-weight: 600;
-  }
-  th,
-  td {
-    padding: 8px 16px;
-    border: 1px solid #e4e4e4;
-    text-align: left;
-  }
-  td {
-    font-size: 12px;
-  }
   .primary-title {
     font-size: 20px;
   }
