@@ -22,7 +22,7 @@ export default {
         style.color = this.color
       }
       if (this.size) {
-        style.size = this.size
+        style.fontSize = this.size
       }
 
       return style

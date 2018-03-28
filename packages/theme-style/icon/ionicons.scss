@@ -9,9 +9,15 @@
   vertical-align: baseline;
 }
 
-.ru-icon-refresh,
+
 .ru-icon-loop,
-.ru-icon-aperture {
+.ru-icon-load-a,
+.ru-icon-load-b,
+.ru-icon-load-c,
+.ru-icon-load-d,
+.ru-icon-ios-loop-strong,
+.ru-icon-ios-loop, {
+  transform-origin: center center;
   animation: rotating 2s linear infinite;
 }
 

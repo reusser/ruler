@@ -8,8 +8,12 @@ const color = resolve => require(['@/doc/color.md'], resolve)
 export default new Router({
   routes: [
     {
-      path: '/',
+      path: '/color',
       component: color
+    },
+    {
+      path: '/icon',
+      component: icon
     }
   ]
 })

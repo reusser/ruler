@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="content-wrapper">
-      <RuMenu :openName="['1', '3']" :uniqueOpen="false">
+      <RuMenu :uniqueOpen="false" :router="true">
         <RuSubmenu name="1">
           <template slot="title">
             <RuIcon :type="'ios-bookmarks'"></RuIcon>指南
@@ -9,12 +9,13 @@
           <RuMenuItem name="1-1">安装</RuMenuItem>
           <RuMenuItem name="1-2">快速上手</RuMenuItem>
         </RuSubmenu>
-        <RuSubmenu name="3">
+        <RuSubmenu name="components">
           <template slot="title">
             <RuIcon :type="'grid'"></RuIcon>组件列表
           </template>
-          <RuMenuItem name="3-1"><RuIcon :type="'android-color-palette'"></RuIcon>Color 色彩</RuMenuItem>
-          <RuMenuItem name="3-2"><RuIcon :type="'bonfire'"></RuIcon>Font 字体</RuMenuItem>
+          <RuMenuItem :name="'color'"><RuIcon :type="'android-color-palette'"></RuIcon>Color 色彩</RuMenuItem>
+          <RuMenuItem :name="'icon'"><RuIcon :type="'ionic'"></RuIcon>Icon 图标</RuMenuItem>
+          <RuMenuItem :name="'font'"><RuIcon :type="'bonfire'"></RuIcon>Font 字体</RuMenuItem>
         </RuSubmenu>
       </RuMenu>
       <router-view class="router-view"/>
@@ -62,5 +63,117 @@ export default {
       padding: 10px 0 80px 270px;
     }
   }
+}
+.hljs {
+  font-family: Consolas, Menlo, Courier, monospace !important;
+  * {
+    line-height: 1.7;
+  }
+}
+
+.xml {
+  .hljs-tag {
+    .hljs-name {
+      color: #DD4A68
+    }
+    .hljs-attr {
+      color: #690
+    }
+    .hljs-string {
+      color: #07a
+    }
+  }
+}
+
+.hljs-comment,
+.hljs-quote {
+  color: #bc9458;
+  font-style: italic
+}
+
+.hljs-keyword,
+.hljs-selector-tag {
+  color: #07a
+}
+
+.hljs-string,
+.hljs-number,
+.hljs-regexp,
+.hljs-variable,
+.hljs-template-variable {
+  color: #690
+}
+
+.hljs-subst {
+  color: #519f50
+}
+
+.hljs-tag
+.hljs-name {
+  color: #DD4A68
+}
+
+.hljs-type {
+  color: #da4939
+}
+
+.hljs-symbol,
+.hljs-bullet,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-attr,
+.hljs-link {
+  color: #690
+}
+
+.hljs-params {
+  color: #d0d0ff
+}
+
+.hljs-attribute {
+  color: #07a
+}
+
+.hljs-meta {
+  color: #9b859d
+}
+
+.hljs-title,
+.hljs-section {
+  color: #ffc66d
+}
+
+.hljs-addition {
+  background-color: #144212;
+  color: #e6e1dc;
+  display: inline-block;
+  width: 100%
+}
+
+.hljs-deletion {
+  background-color: #600;
+  color: #e6e1dc;
+  display: inline-block;
+  width: 100%
+}
+
+.hljs-selector-class {
+    color: #9b703f
+}
+
+.hljs-selector-id {
+  color: #8b98ab
+}
+
+.hljs-emphasis {
+  font-style: italic
+}
+
+.hljs-strong {
+  font-weight: bold
+}
+
+.hljs-link {
+  text-decoration: underline
 }
 </style>

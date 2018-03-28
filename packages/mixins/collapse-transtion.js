@@ -11,7 +11,7 @@ const Transition =  {
     el.style.paddingTop = '0'
     el.style.paddingBottom = '0'
   },
-  enter(el) {
+  enter(el, done) {
     el.dataset.oldOverflow = el.style.oldOverflow
     if (el.scrollHeight !== 0) {
       el.style.height = `${el.scrollHeight}px`
@@ -38,7 +38,7 @@ const Transition =  {
     el.style.height = `${el.scrollHeight}px`
     el.style.overflow = 'hidden'
   },
-  leave(el) {
+  leave(el, done) {
     if (el.scrollHeight !== 0) {
       addClass(el, 'collapse-transition')
       el.style.height = 0

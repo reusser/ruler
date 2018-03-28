@@ -4,11 +4,13 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import ruler from '../packages/index'
+import code from './components/code.vue'
 import '../packages/theme-style/index.scss'
 
 Vue.config.productionTip = false
 
 Vue.use(ruler)
+Vue.component(code.name, code)
 
 /* eslint-disable no-new */
 new Vue({

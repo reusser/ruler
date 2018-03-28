@@ -101,7 +101,7 @@ Ruler的主要颜色是橙色
   </div>
 </div>
 
-<style lang="scss">
+<style lang="scss" scoped>
 p {
   margin: 14px 0;
 }
