@@ -15,6 +15,7 @@
           </template>
           <RuMenuItem :name="'color'"><RuIcon :type="'android-color-palette'"></RuIcon>Color 色彩</RuMenuItem>
           <RuMenuItem :name="'font'"><RuIcon :type="'bonfire'"></RuIcon>Font 字体</RuMenuItem>
+          <RuMenuItem :name="'button'"><RuIcon :type="'settings'"></RuIcon>Button 按钮</RuMenuItem>
           <RuMenuItem :name="'icon'"><RuIcon :type="'ionic'"></RuIcon>Icon 图标</RuMenuItem>
         </RuSubmenu>
       </RuMenu>
@@ -30,14 +31,24 @@ export default {
 </script>
 
 <style lang="scss">
+html {
+  height: 100%;
+}
+body {
+  height: 100%;
+  overflow: hidden;
+}
 #app {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: 100%;
+  overflow: hidden;
   .content-wrapper {
     box-sizing: border-box;
     width: 1140px;
     height: 100%;
     margin: 90px auto 0 auto;
+    overflow: auto;
     h2 {
       font-size: 28px;
       &+p {

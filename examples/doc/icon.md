@@ -31,8 +31,8 @@ Ruler的图标使用的是开源项目[<RuIcon type="ionic"></RuIcon> ionicons](
 
 | 参数      | 说明    | 类型      | 默认值   |
 |---------- |-------- |---------- |-------------  |-------- |
-| size     | 图标的大小，单位px   | Number／String  |    —     |
-| type     | 图标名称   | String    |     —    |
+| size     | 图标的大小，单位px   | Number／String  |    -     |
+| type     | 图标名称   | String    |     -    |
 | color     | 图标颜色   |   String   |    -    |
 
 ### 图标集合

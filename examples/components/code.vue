@@ -7,7 +7,7 @@
       <span>{{title}}</span>
     </div>
     <div class="code-bottom">
-      <p class="note">{{note}}</p>
+      <p class="note" v-html="note"></p>
       <collapse-transition name="code" mode="in-out">
         <div class="coding-code" v-show="isShowCode">
           <div>
@@ -33,7 +33,10 @@ export default {
     code: String,
     title: String,
     note: String,
-    lang: String
+    lang: {
+      type: String,
+      default: 'html'
+    }
   },
   data () {
     return {
@@ -49,6 +52,7 @@ export default {
 
 <style lang="scss" scoped>
 .code-box {
+  margin-bottom: 20px;
   border: 1px solid #e4e4e4;
   border-radius: 3px;
   transition: .2s;
