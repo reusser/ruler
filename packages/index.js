@@ -1,7 +1,8 @@
-import Button from './button';
+import Button from './button'
 import Icon from './icon'
 import Menu from './menu'
 import collapseTransition from './mixins/collapse-transtion'
+import Slider from './slider'
 
 const components = {
   Button,
@@ -9,7 +10,8 @@ const components = {
   Menu,
   Submenu: Menu.Submenu,
   MenuItem: Menu.MenuItem,
-  collapseTransition: collapseTransition
+  collapseTransition,
+  Slider,
 }
 
 const install = (Vue, options = {}) => {
