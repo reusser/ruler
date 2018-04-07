@@ -9,7 +9,8 @@
   >
     <div class="ru-slider-track-wrapper" ref="track">
       <div class="ru-slider-track" :style="trackStyle"></div>
-      <div class="ru-dot" :style="mode === 'horizon' ? {left: dotOffset} : {bottom: dotOffset}" @mousedown.stop="moveInit"></div>
+      <div class="ru-dot" :style="mode === 'horizon' ? {left: dotPreOffset} : {bottom: dotPreOffset}" @mousedown.stop="moveInit"></div>
+      <div class="ru-dot" :style="mode === 'horizon' ? {left: dotNextOffset} : {bottom: dotNextOffset}" @mousedown.stop="moveInit" v-if="range"></div>
       <template v-if="showPoints">
         <div 
           v-for="num in Math.ceil(max / step - 1)" 
@@ -42,13 +43,13 @@ export default {
     disabled: Boolean,
     step: {
       type: Number,
-      default: 1
+      default: 10
     },
     range: Boolean,
     value: {
       type: [Number, Array],
       default() {
-        return 20
+        return [20, 50]
       }
     },
     showPoints: Boolean,
@@ -66,11 +67,24 @@ export default {
       if (!this.range) {
         return this.mode === 'horizon' ? {width: `${this.prePos}%`} : {height: `${this.prePos}%`}
       } else {
-        return {}
+        if (this.mode === 'horizon') {
+          return {
+            width: `${this.nextPos - this.prePos}%`,
+            left: `${this.prePos}%`
+          }
+        } else {
+          return {
+            height: `${this.nextPos - this.prePos}%`,
+            bottom: `${this.prePos}%`
+          }
+        }
       }
     },
-    dotOffset() {
+    dotPreOffset() {
       return `${this.prePos}%`
+    },
+    dotNextOffset() {
+      return `${this.nextPos}%`
     },
     trackRange() {
       return this.max - this.min
