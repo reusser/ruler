@@ -2,12 +2,12 @@
   <div 
   :class="[
     'ru-slider-wrapper',
-    mode ? `ru-slider-wrapper--${mode}` : ''
+    mode ? `ru-slider-wrapper--${mode}` : '',
+    showInput ? 'is-has-input' : ''
   ]"
   :style="mode === 'vertical' ? {height: `${height}px`} : {}"
-   @mousedown="skip(...arguments, mode === 'horizon' ? 'width' : 'height')"
   >
-    <div class="ru-slider-track-wrapper" ref="track">
+    <div class="ru-slider-track-wrapper" ref="track" @mousedown="skip(...arguments, mode === 'horizon' ? 'width' : 'height')">
       <div class="ru-slider-track" :style="trackStyle"></div>
       <div class="ru-dot" :style="mode === 'horizon' ? {left: dotPreOffset} : {bottom: dotPreOffset}" @mousedown.stop="moveInit"></div>
       <div class="ru-dot" :style="mode === 'horizon' ? {left: dotNextOffset} : {bottom: dotNextOffset}" @mousedown.stop="moveInit" v-if="range"></div>
@@ -21,6 +21,13 @@
         </div>
       </template>
     </div>
+    <input 
+      type="text" 
+      @input="inputHandler" 
+      :value="formateValue[0]" 
+      v-if="showInput"
+      class="ru-slider-wrapper__input"
+    >
   </div>
 </template>
 
@@ -43,7 +50,7 @@ export default {
     disabled: Boolean,
     step: {
       type: Number,
-      default: 10
+      default: 1
     },
     range: Boolean,
     value: {
@@ -53,7 +60,8 @@ export default {
       }
     },
     showPoints: Boolean,
-    height: Number
+    height: Number,
+    showInput: Boolean
   },
   data() {
     let val = this.checkLimits(Array.isArray(this.value) ? this.value : [this.value])
@@ -156,6 +164,12 @@ export default {
       this.isdragging = false
       document.removeEventListener('mousemove', this.moveHandler, false)
       document.removeEventListener('mouseup', this.upHandler, false)
+    },
+    inputHandler(e) {
+      let value = e.target.value.trim()
+      value = isNaN(Number(value)) ? '' : Number(value)
+      value = this.checkLimits([value, this.max])
+      this.currentValue = [value[0], this.currentValue[1]]
     }
   },
   watch: {

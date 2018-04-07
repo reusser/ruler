@@ -1,13 +1,22 @@
 @include b(slider-wrapper) {
+  position: relative;
   @include m(horizon) {
     width: 90%;
     height: 6px;
     margin: 16px 0;
+    @include when(has-input) {
+      box-sizing: border-box;
+      padding-right: 100px;
+    }
     @include b(dot) {
       transform: translateX(-50%);
       &:hover {
         transform: translateX(-50%) scale(1.2);
       }
+    }
+    .ru-slider-wrapper__input {
+      top: -13px;
+      right: 0;
     }
   }
   @include m(vertical) {
@@ -16,6 +25,9 @@
     @include b(slider-track) {
       bottom: 0;
     }
+    @include when(has-input) {
+      padding-right: 100px;
+    }
     @include b(dot) {
       left: -7px;
       transform: translateY(50%);
@@ -23,6 +35,20 @@
         transform: translateY(50%) scale(1.2);
       }
     }
+    .ru-slider-wrapper__input {
+      bottom: 0;
+      right: 0;
+    }
+  }
+  @include e(input) {
+    position: absolute;
+    box-sizing: border-box;
+    width: 80px;
+    height: 30px;
+    padding: 10px;
+    outline: none;
+    border: 1px solid #e4e4e4;
+    border-radius: 2px;
   }
 }
 
