@@ -3,7 +3,8 @@
   :class="[
     'ru-slider-wrapper',
     mode ? `ru-slider-wrapper--${mode}` : '',
-    showInput ? 'is-has-input' : ''
+    showInput ? 'is-has-input' : '',
+    {'is-disabled': disabled}
   ]"
   :style="mode === 'vertical' ? {height: `${height}px`} : {}"
   >
@@ -153,6 +154,7 @@ export default {
       }
     },
     moveInit(e) {
+      if(this.disabled) return
       document.addEventListener('mousemove', this.moveHandler, false)
       document.addEventListener('mouseup', this.upHandler, false)
     },
