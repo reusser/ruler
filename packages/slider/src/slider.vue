@@ -26,7 +26,7 @@
       type="text" 
       @input="inputHandler" 
       :value="formateValue[0]" 
-      v-if="showInput"
+      v-if="showInput && !disabled"
       class="ru-slider-wrapper__input"
     >
   </div>
@@ -57,7 +57,7 @@ export default {
     value: {
       type: [Number, Array],
       default() {
-        return [20, 50]
+        return 0
       }
     },
     showPoints: Boolean,
