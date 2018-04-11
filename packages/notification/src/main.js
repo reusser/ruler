@@ -22,7 +22,7 @@ const Notification = function(options) {
   instance.dom = instance.vm.$el
   document.body.appendChild(instance.vm.$el);
   instance.id = id
-  instance.vm.visibled = true;
+  instance.vm.visible = true;
   let topOffset = options.topOffset || 0
   instances.forEach(item => topOffset += item.$el.offsetHeight + 16)
   topOffset += 16

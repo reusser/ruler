@@ -2,7 +2,7 @@
   <transition name="ru-notification-list">
     <div 
       class="ru-notification right"
-      v-show="visibled"
+      v-show="visible"
       :style="offsetStyle"
       @click="click"
       @mouseenter="clearTimer"
@@ -61,7 +61,7 @@ export default {
       title: '',
       message: '',
       icon: '',
-      visibled: false,
+      visible: false,
       timer: null,
       type: '',
       useHTMLString: false,
@@ -88,14 +88,14 @@ export default {
     setTimer() {
       if (this.duration > 0) {
         this.timer = setTimeout(() => {
-          if (this.visibled) {
+          if (this.visible) {
             this.close()
           }
         }, this.duration)
       }
     },
     close() {
-      this.visibled = false
+      this.visible = false
       if (typeof this.onClose === 'function') {
         this.onClose()
       }
@@ -112,7 +112,7 @@ export default {
     }
   },
   watch: {
-    visibled(val) {
+    visible(val) {
       if (!val) {
         this.$el.addEventListener('transitionend', this.destroyElement);
       }
