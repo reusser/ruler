@@ -18,6 +18,7 @@
           <RuMenuItem :name="'button'"><RuIcon :type="'settings'"></RuIcon>Button 按钮</RuMenuItem>
           <RuMenuItem :name="'icon'"><RuIcon :type="'ionic'"></RuIcon>Icon 图标</RuMenuItem>
           <RuMenuItem :name="'slider'"><RuIcon :type="'android-options'"></RuIcon>Slider 滑块</RuMenuItem>
+          <RuMenuItem :name="'notification'"><RuIcon :type="'paper-airplane'"></RuIcon>notification 通知</RuMenuItem>
         </RuSubmenu>
       </RuMenu>
       <router-view class="router-view"/>
@@ -69,7 +70,7 @@ body {
       position: fixed;
       top: 0;
       bottom: 0;
-      width: 160px;
+      width: 180px;
       margin-top: 90px;
       border-right: none;
       .ru-menu-item {

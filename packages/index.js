@@ -3,6 +3,7 @@ import Icon from './icon'
 import Menu from './menu'
 import collapseTransition from './mixins/collapse-transtion'
 import Slider from './slider'
+import Notification from './notification'
 
 const components = {
   Button,
@@ -12,6 +13,7 @@ const components = {
   MenuItem: Menu.MenuItem,
   collapseTransition,
   Slider,
+  Notification
 }
 
 const install = (Vue, options = {}) => {
@@ -19,7 +21,7 @@ const install = (Vue, options = {}) => {
   Object.keys(components).forEach(component => {
     Vue.component(components[component].name, components[component])
   })
-
+  Vue.prototype.$notice = Notification
   install.installed = true
 }
 install.installed = false

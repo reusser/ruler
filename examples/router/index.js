@@ -8,6 +8,7 @@ const font = resolve => require(['@/doc/font.md'], resolve)
 const color = resolve => require(['@/doc/color.md'], resolve)
 const button = resolve => require(['@/doc/button.md'], resolve)
 const slider = resolve => require(['@/doc/slider.md'], resolve)
+const notification = resolve => require(['@/doc/notification.md'], resolve)
 export default new Router({
   routes: [
     {
@@ -29,6 +30,10 @@ export default new Router({
     {
       path: '/slider',
       component: slider
+    },
+    {
+      path: '/notification',
+      component: notification
     }
   ]
 })
