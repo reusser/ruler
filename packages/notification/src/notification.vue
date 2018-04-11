@@ -9,7 +9,7 @@
       @mouseleave="setTimer"
     >
       <RuIcon 
-        :type="typeClass || icon" 
+        :type="icon || typeClass" 
         class="ru-notification__icon"
         :class="{
           'is-success': type === 'success',
