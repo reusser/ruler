@@ -30,6 +30,9 @@
     background-color: mix(#fff, #ff9900, 80%);
     color: #ff9900;
   }
+  @include when (center) {
+    justify-content: center;
+  }
   @include e (icon) {
     display: block;
     margin-right: 10px;

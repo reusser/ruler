@@ -19,6 +19,7 @@
           <RuMenuItem :name="'icon'"><RuIcon :type="'ionic'"></RuIcon>Icon 图标</RuMenuItem>
           <RuMenuItem :name="'slider'"><RuIcon :type="'android-options'"></RuIcon>Slider 滑块</RuMenuItem>
           <RuMenuItem :name="'notification'"><RuIcon :type="'paper-airplane'"></RuIcon>notification 通知</RuMenuItem>
+          <RuMenuItem :name="'message'"><RuIcon :type="'email-unread'"></RuIcon>message 消息</RuMenuItem>
         </RuSubmenu>
       </RuMenu>
       <router-view class="router-view"/>
@@ -101,6 +102,9 @@ body {
     font-size: 14px;
     font-family: Consolas;
     color: #495056;
+  }
+  th {
+    min-width: 100px;
   }
 }
 .hljs {

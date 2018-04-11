@@ -9,6 +9,7 @@ const color = resolve => require(['@/doc/color.md'], resolve)
 const button = resolve => require(['@/doc/button.md'], resolve)
 const slider = resolve => require(['@/doc/slider.md'], resolve)
 const notification = resolve => require(['@/doc/notification.md'], resolve)
+const message = resolve => require(['@/doc/message.md'], resolve)
 export default new Router({
   routes: [
     {
@@ -34,6 +35,10 @@ export default new Router({
     {
       path: '/notification',
       component: notification
+    },
+    {
+      path: '/message',
+      component: message
     }
   ]
 })

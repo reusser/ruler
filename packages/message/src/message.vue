@@ -2,7 +2,7 @@
   <transition name="ru-message-list">
     <div 
       class="ru-message"
-      :class="typeClass"
+      :class="[typeClass, {'is-center': center}]"
       @mouseenter="clearTimer"
       @mouseleave="setTimer"
       v-show="visible"
@@ -49,7 +49,8 @@ export default {
       duration: 3000,
       timer: null,
       visible: false,
-      message: ''
+      message: '',
+      center: false
     }
   },
   computed: {
