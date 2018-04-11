@@ -51,6 +51,11 @@
 | topOffset | 通知垂直方向偏移距离   |   Number   |    -    |   -   |
 | useHTMLString | 是否将内容作为HTML标签渲染 |  Boolean   |   -    |   false   |
 
+### Events
+| 事件名称     | 事件说明    |
+|---------- |-------- |---------- |-------------  |-------- |
+| close     | 关闭当前通知，可用于手动关闭通知   |
+
 <script>
   let baseNoticeCode = `
   <RuButton @click="notice({title: '标题', message: '这是一条通知，会在三秒后关闭'})">普通通知</RuButton>
