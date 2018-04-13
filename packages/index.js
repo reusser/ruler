@@ -5,6 +5,7 @@ import collapseTransition from './mixins/collapse-transtion'
 import Slider from './slider'
 import Notification from './notification'
 import Message from './message'
+import Progress from './progress'
 
 const components = {
   Button,
@@ -15,7 +16,8 @@ const components = {
   collapseTransition,
   Slider,
   Notification,
-  Message
+  Message,
+  Progress
 }
 
 const install = (Vue, options = {}) => {

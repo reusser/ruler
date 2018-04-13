@@ -20,6 +20,7 @@
           <RuMenuItem :name="'slider'"><RuIcon :type="'android-options'"></RuIcon>Slider 滑块</RuMenuItem>
           <RuMenuItem :name="'notification'"><RuIcon :type="'paper-airplane'"></RuIcon>notification 通知</RuMenuItem>
           <RuMenuItem :name="'message'"><RuIcon :type="'email-unread'"></RuIcon>message 消息</RuMenuItem>
+          <RuMenuItem :name="'progress'"><RuIcon :type="'battery-low'"></RuIcon>progress 进度条</RuMenuItem>
         </RuSubmenu>
       </RuMenu>
       <router-view class="router-view"/>
