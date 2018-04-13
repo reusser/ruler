@@ -6,6 +6,7 @@ import Slider from './slider'
 import Notification from './notification'
 import Message from './message'
 import Progress from './progress'
+import Circle from './circle'
 
 const components = {
   Button,
@@ -17,7 +18,8 @@ const components = {
   Slider,
   Notification,
   Message,
-  Progress
+  Progress,
+  Circle
 }
 
 const install = (Vue, options = {}) => {

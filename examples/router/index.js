@@ -11,6 +11,7 @@ const slider = resolve => require(['@/doc/slider.md'], resolve)
 const notification = resolve => require(['@/doc/notification.md'], resolve)
 const message = resolve => require(['@/doc/message.md'], resolve)
 const progress = resolve => require(['@/doc/progress.md'], resolve)
+const circle = resolve => require(['@/doc/circle.md'], resolve)
 export default new Router({
   routes: [
     {
@@ -44,6 +45,10 @@ export default new Router({
     {
       path: '/progress',
       component: progress
+    },
+    {
+      path: '/circle',
+      component: circle
     }
   ]
 })
