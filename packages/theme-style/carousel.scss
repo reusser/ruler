@@ -1,6 +1,7 @@
 @include b (carousel) {
   position: relative;
   box-sizing: border-box;
+  margin-bottom: 20px;
   @include e (arrow) {
     position: absolute;
     top: 50%;
