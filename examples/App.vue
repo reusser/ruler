@@ -22,6 +22,7 @@
           <RuMenuItem :name="'message'"><RuIcon :type="'email-unread'"></RuIcon>message 消息</RuMenuItem>
           <RuMenuItem :name="'progress'"><RuIcon :type="'battery-low'"></RuIcon>progress 进度条</RuMenuItem>
           <RuMenuItem :name="'circle'"><RuIcon :type="'ios-circle-outline'"></RuIcon>circle 进度环</RuMenuItem>
+          <RuMenuItem :name="'carousel'"><RuIcon :type="'ios-film'"></RuIcon>carousel 走马灯</RuMenuItem>
         </RuSubmenu>
       </RuMenu>
       <router-view class="router-view"/>

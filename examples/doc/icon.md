@@ -48,6 +48,9 @@ Ruler的图标使用的是开源项目[<RuIcon type="ionic"></RuIcon> ionicons](
 </ul>
 
 <style lang="scss" scoped>
+i {
+  color: #5a6b76;
+}
 a {
   text-decoration: none;
   &:active,

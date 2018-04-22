@@ -7,6 +7,7 @@ import Notification from './notification'
 import Message from './message'
 import Progress from './progress'
 import Circle from './circle'
+import Carousel from './carousel'
 
 const components = {
   Button,
@@ -19,7 +20,9 @@ const components = {
   Notification,
   Message,
   Progress,
-  Circle
+  Circle,
+  Carousel,
+  CarouselItem: Carousel.CarouselItem
 }
 
 const install = (Vue, options = {}) => {

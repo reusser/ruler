@@ -12,6 +12,7 @@ const notification = resolve => require(['@/doc/notification.md'], resolve)
 const message = resolve => require(['@/doc/message.md'], resolve)
 const progress = resolve => require(['@/doc/progress.md'], resolve)
 const circle = resolve => require(['@/doc/circle.md'], resolve)
+const carousel = resolve => require(['@/doc/carousel.md'], resolve)
 export default new Router({
   routes: [
     {
@@ -49,6 +50,10 @@ export default new Router({
     {
       path: '/circle',
       component: circle
+    },
+    {
+      path: '/carousel',
+      component: carousel
     }
   ]
 })

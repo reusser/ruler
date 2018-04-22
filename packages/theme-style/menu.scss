@@ -52,6 +52,9 @@
       }
     }
     .ru-menu-item {
+      i {
+        color: #5a6b76;
+      }
       @include when(active) {
         color: $--color-primary;
         border-right: 2px solid $--color-primary;

@@ -114,6 +114,9 @@ export default {
     text-align: center;
     transform: translate(-50%);
     cursor: pointer;
+    i {
+      color: #5a6b76;
+    }
     &:hover {
       background-color: #f9fafc;
       [class^="ru-icon-"] {
