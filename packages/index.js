@@ -8,6 +8,7 @@ import Message from './message'
 import Progress from './progress'
 import Circle from './circle'
 import Carousel from './carousel'
+import DatePicker from './date-picker'
 
 const components = {
   Button,
@@ -22,7 +23,8 @@ const components = {
   Progress,
   Circle,
   Carousel,
-  CarouselItem: Carousel.CarouselItem
+  CarouselItem: Carousel.CarouselItem,
+  DatePicker
 }
 
 const install = (Vue, options = {}) => {

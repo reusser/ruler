@@ -18,11 +18,12 @@
           <RuMenuItem :name="'button'"><RuIcon :type="'settings'"></RuIcon>Button 按钮</RuMenuItem>
           <RuMenuItem :name="'icon'"><RuIcon :type="'ionic'"></RuIcon>Icon 图标</RuMenuItem>
           <RuMenuItem :name="'slider'"><RuIcon :type="'android-options'"></RuIcon>Slider 滑块</RuMenuItem>
-          <RuMenuItem :name="'notification'"><RuIcon :type="'paper-airplane'"></RuIcon>notification 通知</RuMenuItem>
-          <RuMenuItem :name="'message'"><RuIcon :type="'email-unread'"></RuIcon>message 消息</RuMenuItem>
-          <RuMenuItem :name="'progress'"><RuIcon :type="'battery-low'"></RuIcon>progress 进度条</RuMenuItem>
-          <RuMenuItem :name="'circle'"><RuIcon :type="'ios-circle-outline'"></RuIcon>circle 进度环</RuMenuItem>
-          <RuMenuItem :name="'carousel'"><RuIcon :type="'ios-film'"></RuIcon>carousel 走马灯</RuMenuItem>
+          <RuMenuItem :name="'notification'"><RuIcon :type="'paper-airplane'"></RuIcon>Notification 通知</RuMenuItem>
+          <RuMenuItem :name="'message'"><RuIcon :type="'email-unread'"></RuIcon>Message 消息</RuMenuItem>
+          <RuMenuItem :name="'progress'"><RuIcon :type="'battery-low'"></RuIcon>Progress 进度条</RuMenuItem>
+          <RuMenuItem :name="'circle'"><RuIcon :type="'ios-circle-outline'"></RuIcon>Circle 进度环</RuMenuItem>
+          <RuMenuItem :name="'carousel'"><RuIcon :type="'ios-film'"></RuIcon>Carousel 走马灯</RuMenuItem>
+          <RuMenuItem :name="'datePicker'"><RuIcon :type="'ios-calendar-outline'"></RuIcon>DatePicker 日期选择器</RuMenuItem>
         </RuSubmenu>
       </RuMenu>
       <router-view class="router-view"/>
@@ -74,7 +75,7 @@ body {
       position: fixed;
       top: 0;
       bottom: 0;
-      width: 180px;
+      width: 240px;
       margin-top: 90px;
       border-right: none;
       .ru-menu-item {

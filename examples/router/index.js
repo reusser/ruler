@@ -13,6 +13,7 @@ const message = resolve => require(['@/doc/message.md'], resolve)
 const progress = resolve => require(['@/doc/progress.md'], resolve)
 const circle = resolve => require(['@/doc/circle.md'], resolve)
 const carousel = resolve => require(['@/doc/carousel.md'], resolve)
+const datePicker = resolve => require(['@/doc/date-picker.md'], resolve)
 export default new Router({
   routes: [
     {
@@ -54,6 +55,10 @@ export default new Router({
     {
       path: '/carousel',
       component: carousel
+    },
+    {
+      path: '/datePicker',
+      component: datePicker
     }
   ]
 })

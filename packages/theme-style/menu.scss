@@ -51,7 +51,8 @@
         background-color: $--background-color-base;
       }
     }
-    .ru-menu-item {
+    .ru-menu-item,
+    .ru-submenu__title {
       i {
         color: #5a6b76;
       }
