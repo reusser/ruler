@@ -10,12 +10,12 @@
       readonly
     >
     </input>
-    <div class="ru-date-wrapper" v-show="isShowDatePanel || keepDatePanel">
+    <div class="ru-date-wrapper" v-show="isShowDatePanel || keepDatePanel" @click="keepDatePanel = true">
       <div class="ru-date-options" v-if="showOptions">
         <template v-if="!range">
-          <button class="ru-date-options__btn" @click="selectValue(visualYear, visualMonth, visualDay, 0)">今天</button>
-          <button class="ru-date-options__btn" @click="selectValue(visualYear, visualMonth, visualDay, -1)">昨天</button>
-          <button class="ru-date-options__btn" @click="selectValue(visualYear, visualMonth, visualDay, -7)">一周前</button>
+          <button class="ru-date-options__btn" @click.stop="selectValue(visualYear, visualMonth, visualDay, 0)">今天</button>
+          <button class="ru-date-options__btn" @click.stop="selectValue(visualYear, visualMonth, visualDay, -1)">昨天</button>
+          <button class="ru-date-options__btn" @click.stop="selectValue(visualYear, visualMonth, visualDay, -7)">一周前</button>
         </template>
         <template v-else>
           <button class="ru-date-options__btn">最近一周</button>
@@ -62,7 +62,7 @@
           <span v-for="(item, index) in dateArr" :key="`_${index}_`">
             <span 
               :class="['ru-date-panel__item', {'is-active': `${visualYear}-${visualMonth}-${item}` === activeDate }]" 
-              @click="selectValue(visualYear, visualMonth, item, 0)"
+              @click.stop="selectValue(visualYear, visualMonth, item, 0)"
             >
               {{item}}
             </span>

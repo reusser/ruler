@@ -14,6 +14,9 @@ const progress = resolve => require(['@/doc/progress.md'], resolve)
 const circle = resolve => require(['@/doc/circle.md'], resolve)
 const carousel = resolve => require(['@/doc/carousel.md'], resolve)
 const datePicker = resolve => require(['@/doc/date-picker.md'], resolve)
+const menu = resolve => require(['@/doc/menu.md'], resolve)
+const install = resolve => require(['@/doc/install.md'], resolve)
+const start = resolve => require(['@/doc/start.md'], resolve)
 export default new Router({
   routes: [
     {
@@ -59,6 +62,18 @@ export default new Router({
     {
       path: '/datePicker',
       component: datePicker
+    },
+    {
+      path: '/menu',
+      component: menu
+    },
+    {
+      path: '/install',
+      component: install
+    },
+    {
+      path: '/start',
+      component: start
     }
   ]
 })

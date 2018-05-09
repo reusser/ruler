@@ -1,13 +1,17 @@
 <template>
   <div id="app">
+    <header>
+      <span>文档</span>
+      <span @click="toGithub">github</span>
+    </header>
     <div class="content-wrapper">
-      <RuMenu :uniqueOpen="false" :router="true">
+      <RuMenu :uniqueOpen="false" :router="true" activeName="color">
         <RuSubmenu name="1">
           <template slot="title">
             <RuIcon :type="'ios-bookmarks'"></RuIcon>指南
           </template>
-          <RuMenuItem name="1-1">安装</RuMenuItem>
-          <RuMenuItem name="1-2">快速上手</RuMenuItem>
+          <RuMenuItem name="install">安装</RuMenuItem>
+          <RuMenuItem name="start">快速上手</RuMenuItem>
         </RuSubmenu>
         <RuSubmenu name="components">
           <template slot="title">
@@ -24,6 +28,7 @@
           <RuMenuItem :name="'circle'"><RuIcon :type="'ios-circle-outline'"></RuIcon>Circle 进度环</RuMenuItem>
           <RuMenuItem :name="'carousel'"><RuIcon :type="'ios-film'"></RuIcon>Carousel 走马灯</RuMenuItem>
           <RuMenuItem :name="'datePicker'"><RuIcon :type="'ios-calendar-outline'"></RuIcon>DatePicker 日期选择器</RuMenuItem>
+          <RuMenuItem :name="'menu'"><RuIcon :type="'navicon'"></RuIcon>Menu 导航菜单</RuMenuItem>
         </RuSubmenu>
       </RuMenu>
       <router-view class="router-view"/>
@@ -33,7 +38,12 @@
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  methods: {
+    toGithub () {
+      location.href = 'https://github.com/Reusjs/ruler'
+    }
+  }
 }
 </script>
 
@@ -50,11 +60,39 @@ body {
   -moz-osx-font-smoothing: grayscale;
   height: 100%;
   overflow: hidden;
+  header {
+    position: relative;
+    width: 1140px;
+    height: 90px;
+    margin: 0 auto;
+    span,
+    a {
+      display: inline-block;
+      box-sizing: border-box;
+      position: absolute;
+      height: 90px;
+      width: 90px;
+      line-height: 120px;
+      text-align: center;
+      font-size: 16px;
+      cursor: pointer;
+      color: #5e5e5e;
+      text-decoration: none;
+      &:first-child {
+        right: 100px;
+        border-bottom: 2px solid #fe6f3d;
+      }
+      &:nth-of-type(2) {
+        right: 0;
+      }
+    }
+  }
   .content-wrapper {
     box-sizing: border-box;
     width: 1140px;
     height: 100%;
-    margin: 90px auto 0 auto;
+    margin: 0px auto 0 auto;
+    padding-top: 90px;
     overflow: auto;
     h2 {
       font-size: 28px;
@@ -78,6 +116,7 @@ body {
       width: 240px;
       margin-top: 90px;
       border-right: none;
+      overflow-y: auto;
       .ru-menu-item {
         border-right: none;
       }
