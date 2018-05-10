@@ -20,7 +20,8 @@ const start = resolve => require(['@/doc/start.md'], resolve)
 export default new Router({
   routes: [
     {
-      path: '/color',
+      path: '/',
+      name: 'color',
       component: color
     },
     {
