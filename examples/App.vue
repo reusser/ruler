@@ -61,10 +61,13 @@ body {
   height: 100%;
   overflow: hidden;
   header {
-    position: relative;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     width: 1140px;
     height: 90px;
     margin: 0 auto;
+    background: #fff;
     span,
     a {
       display: inline-block;
